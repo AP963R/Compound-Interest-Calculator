@@ -11,3 +11,7 @@ This compound interest calculator prompts a user for some inputs and then calcul
 3. Create a run function that then prompts the user for all necessary inputs required to calculate the final amounts.
 
 4. Inside of a said function, make a nice pretty print statement using a template literal string that gives the financial breakdown.
+
+### Output
+
+![Console Output](console-output.png)
