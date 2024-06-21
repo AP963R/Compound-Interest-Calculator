@@ -1,10 +1,5 @@
 const prompt = require('prompt-sync')()
 
-// let initAmount = 20000
-// let monthlyContribution = 400
-// let numberOfYears = 30
-// let interestRate = 10
-
 function compoundInterest(initAmount, monthlyContribution, numberOfYears, interestRate) {
     let total = initAmount
     let annualContribution = monthlyContribution * 12
