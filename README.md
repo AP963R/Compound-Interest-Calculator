@@ -1,6 +1,6 @@
 # Compound-Interest-Calculator
 
-This compound interest calculator prompts a user for some inputs and then calculates the compound interest value.
+This compound interest calculator prompts a user for some inputs and then calculates the compound interest value based on the figures they've given.
 
 ### Methodology
 
