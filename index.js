@@ -16,6 +16,10 @@ function calculateRegular(initAmount, monthlyContribution, numberOfYears, intere
     return (initAmount + monthlyContribution * 12 * numberOfYears).toFixed(2)
 }
 
+function formatCurrency(value) {
+    return parseInt(value).toLocaleString('en-GB', { style: 'currency', currency: 'GBP' });
+}
+
 function run() {
     let initAmount = parseInt(prompt('What is your initial investment? £'))
     let monthlyContribution = parseInt(prompt('What is your monthly contribution? £'))
@@ -30,7 +34,7 @@ function printOutput(initAmount, monthlyContribution, numberOfYears, interestRat
 
     let valueWithoutCompounding = calculateRegular(initAmount, monthlyContribution, numberOfYears)
 
-    let summary = `INIT_AMOUNT: £${initAmount}\nMONTHLY_CONTRIBUTION: £${monthlyContribution}\nNUMBER_OF_YEARS: £${numberOfYears}\nINTEREST_RATE: £${interestRate}\n\nFINAL_COMPOUNDED_VALUE: £${finalValue}\nREGULAR_AMOUNT: £${valueWithoutCompounding}\nDIFFERENCE: £${finalValue - valueWithoutCompounding}`
+    let summary = `INITIAL AMOUNT: ${formatCurrency(initAmount)}\nMONTHLY CONTRIBUTION: ${formatCurrency(monthlyContribution)}\nNUMBER OF YEARS: ${numberOfYears}\nINTEREST RATE: ${interestRate}\n\nFINAL COMPOUNDED VALUE: ${formatCurrency(finalValue)}\nREGULAR AMOUNT: ${formatCurrency(valueWithoutCompounding)}\nDIFFERENCE: ${formatCurrency(finalValue - valueWithoutCompounding)}`
     
     console.log(summary)
 }
