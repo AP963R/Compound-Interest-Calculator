@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <title>Compound Interest Calculator | UK</title>
+</head>
+<body>
+    <section class="form">
+        <form id="calculator-form">
+            <h1 class="title">Compound Interest Calculator | UK</h1>
+
+            <div class="input-group">
+                <label for="initAmount">Initial Investment (£):</label>
+                <input type="number" id="initAmount" required><br><br>
+            </div>
+
+            <div class="input-group">
+                <label for="monthlyContribution">Monthly Contribution (£):</label>
+                <input type="number" id="monthlyContribution" required><br><br>
+            </div>
+
+            <div class="input-group">
+                <label for="numberOfYears">Number of Years:</label>
+                <input type="number" id="numberOfYears" required><br><br>
+            </div>
+
+            <div class="input-group">
+                <label for="interestRate">Expected Interest Rate (%):</label>
+                <input type="number" id="interestRate" required><br><br>
+            </div>
+
+            <button class="calculate" type="submit">Calculate</button>
+
+            <h2 class="summary hidden">Summary</h2>
+            <pre id="output" class="hidden"></pre>
+        </form>
+    </section>
+
+    <script src="index.js"></script>
+    <script>
+        document.getElementById('calculator-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let initAmount = parseInt(document.getElementById('initAmount').value);
+            let monthlyContribution = parseInt(document.getElementById('monthlyContribution').value);
+            let numberOfYears = parseInt(document.getElementById('numberOfYears').value);
+            let interestRate = parseInt(document.getElementById('interestRate').value);
+
+            // Clear the previous output
+            document.getElementById('output').textContent = '';
+
+            // Call the existing printOutput function
+            printOutput(initAmount, monthlyContribution, numberOfYears, interestRate);
+
+            // Show the summary section
+            document.querySelector('.summary').classList.remove('hidden');
+            document.getElementById('output').classList.remove('hidden');
+        });
+
+        // Override console.log to display the output in the UI
+        (function() {
+            var oldLog = console.log;
+            console.log = function (message) {
+                document.getElementById('output').textContent += message + '\n';
+                oldLog.apply(console, arguments);
+            };
+        })();
+    </script>
+</body>
+</html>
